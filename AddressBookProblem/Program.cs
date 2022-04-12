@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AddressBookProblem
 {
@@ -25,6 +26,7 @@ namespace AddressBookProblem
                 Console.WriteLine("Enter 4 for Delete Details");
                 Console.WriteLine("Enter 5 for Add 3rd Person Details");
                 Console.WriteLine("Enter 6 for Add new AddressBook Details");
+                Console.WriteLine("Entre 7 for Search Person Based on City or State");
                 int value = Convert.ToInt32(Console.ReadLine());
                 switch (value)
                 {
@@ -158,6 +160,16 @@ namespace AddressBookProblem
                         addressBook2.Add(7, p.email);
                         Console.WriteLine("\nAdded Details are");
                         Console.WriteLine("\nFirst Name : " + addressBook2[0] + "\nLast Name : " + addressBook2[1] + "\nAddress : " + addressBook2[2] + "\nCity : " + addressBook2[3] + "\nState : " + addressBook2[4] + "\nZip : " + addressBook2[5] + "\nPhone Number : " + addressBook2[6] + "\nEmail : " + addressBook2[7]);
+                        break;
+                    case 7:
+                        Console.WriteLine("Enter City");
+                        string searchCity = Console.ReadLine();
+                        SearchCity(searchCity);
+                        SearchCity2(searchCity);
+                        Console.WriteLine("Enter State ");
+                        string searchState = Console.ReadLine();
+                        SearchState(searchState);
+                        SearchState2(searchState);
                         break;
 
                 }
@@ -340,13 +352,77 @@ namespace AddressBookProblem
                         Choice();
                     }
 
-                    Choice();
 
                 }
+                void SearchCity(string searchValue)
+                {
+                    Console.WriteLine("Person Detial in this City are :\n");
+                    for (int i = 0; i < addressBook.Count; i++)
+                    {
+                        if (addressBook[i].All(e => (addressBook[3].Equals(searchValue))))
+                        {
+                            Console.WriteLine(addressBook[i]);
+                        }
+                        if (addressBook[i].All(e => (addressBook[11].Equals(searchValue))))
+                        {
+                            Console.WriteLine(addressBook[i]);
+                        }
+                        if (addressBook[i].All(e => (addressBook[19].Equals(searchValue))))
+                        {
+                            Console.WriteLine(addressBook[i]);
+                        }
 
+
+                    }
+                }
+                void SearchCity2(string searchValue)
+                {
+                    Console.WriteLine("Person Detial in this City are :\n");
+                    for (int j = 0; j < addressBook2.Count; j++)
+                    {
+                        if (addressBook2[j].All(e => (addressBook2[3].Equals(searchValue))))
+                        {
+                            Console.WriteLine(addressBook2[j]);
+                        }
+
+                    }
+                }
+                void SearchState(string searchValue)
+                {
+                    Console.WriteLine("Person Detial in this State are :\n");
+                    for (int i = 0; i < addressBook.Count; i++)
+                    {
+                        if (addressBook[i].All(e => (addressBook[4].Equals(searchValue))))
+                        {
+                            Console.WriteLine(addressBook[0]);
+                        }
+                        if (addressBook[i].All(e => (addressBook[12].Equals(searchValue))))
+                        {
+                            Console.WriteLine(addressBook[8]);
+                        }
+                        if (addressBook[i].All(e => (addressBook[20].Equals(searchValue))))
+                        {
+                            Console.WriteLine(addressBook[16]);
+                        }
+                    }
+                }
+                void SearchState2(string searchValue)
+                {
+                    Console.WriteLine("Person Detial in this City are :\n");
+                    for (int j = 0; j < addressBook2.Count; j++)
+                    {
+                        if (addressBook2[j].All(e => (addressBook2[4].Equals(searchValue))))
+                        {
+                            Console.WriteLine(addressBook2[j]);
+                        }
+
+                    }
+                }
             }
 
         }
+
     }
 
 }
+
